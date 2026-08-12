@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="David Gauthier, research economist at the Banque de France. Research on credit, risk premia and central bank communication, plus open datasets built from speeches and transcripts.">
+<meta name="author" content="David Gauthier">
+<link rel="canonical" href="https://davidgaut.github.io/">
+<meta property="og:title" content="David Gauthier — Research Economist">
+<meta property="og:description" content="Research on credit, risk premia and central bank communication, plus open datasets built from speeches and transcripts.">
+<meta property="og:type" content="profile">
+<title>David Gauthier — Research Economist</title>
+<style>
+  :root {
+    --ground: #FCFCFD;
+    --surface: #F4F5F7;
+    --ink: #15181D;
+    --muted: #5C6675;
+    --faint: #7C8697;
+    --rule: #E1E4E9;
+    --accent: #1D5D78;
+    --accent-soft: #E8F0F4;
+
+    --serif: "Iowan Old Style", Charter, "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    --sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, "Cascadia Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+    --fs-xs: 0.6875rem;
+    --fs-sm: 0.8125rem;
+    --fs-md: 0.9375rem;
+    --fs-base: 1rem;
+    --fs-lg: 1.1875rem;
+    --fs-xl: 1.5rem;
+    --fs-2xl: 2.125rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0F1216;
+      --surface: #161A20;
+      --ink: #E7EAEE;
+      --muted: #98A2B0;
+      --faint: #7E8998;
+      --rule: #252B33;
+      --accent: #79B9D2;
+      --accent-soft: #16242C;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground: #0F1216;
+    --surface: #161A20;
+    --ink: #E7EAEE;
+    --muted: #98A2B0;
+    --faint: #7E8998;
+    --rule: #252B33;
+    --accent: #79B9D2;
+    --accent-soft: #16242C;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: var(--fs-base);
+    line-height: 1.6;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+  }
+  a:hover { border-bottom-color: var(--accent); }
+  a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+
+  .page {
+    max-width: 68rem;
+    margin: 0 auto;
+    padding: 3.5rem 1.75rem 5rem;
+    display: grid;
+    grid-template-columns: 17rem 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  /* ---------- identity rail ---------- */
+
+  .rail { position: sticky; top: 3.5rem; display: flex; flex-direction: column; gap: 1.25rem; }
+
+  .name {
+    font-size: var(--fs-2xl);
+    line-height: 1.1;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .role {
+    font-family: var(--sans);
+    font-size: var(--fs-md);
+    color: var(--muted);
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .bio { font-size: var(--fs-md); color: var(--ink); margin: 0; }
+
+  .links { display: flex; flex-direction: column; gap: 0.375rem; font-family: var(--sans); font-size: var(--fs-sm); margin: 0; padding: 0; list-style: none; }
+  .links a { border-bottom: none; display: inline-flex; gap: 0.5rem; align-items: baseline; }
+  .links a:hover .link-label { border-bottom: 1px solid var(--accent); }
+  .link-key { color: var(--faint); font-family: var(--mono); font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.06em; min-width: 4.5rem; }
+
+  .disclaimer {
+    font-family: var(--sans);
+    font-size: var(--fs-xs);
+    line-height: 1.5;
+    color: var(--faint);
+    border-top: 1px solid var(--rule);
+    padding-top: 0.875rem;
+    margin: 0.5rem 0 0;
+  }
+
+  /* ---------- content column ---------- */
+
+  .content { display: flex; flex-direction: column; gap: 3.25rem; min-width: 0; }
+
+  section { display: flex; flex-direction: column; gap: 1.25rem; }
+
+  h2 {
+    font-family: var(--sans);
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.11em;
+    color: var(--faint);
+    margin: 0;
+    padding-bottom: 0.625rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .section-note { font-family: var(--sans); font-size: var(--fs-sm); color: var(--muted); margin: -0.5rem 0 0; }
+
+  /* ---------- entries with mono spine ---------- */
+
+  .entries { display: flex; flex-direction: column; gap: 1.5rem; }
+
+  .entry { display: grid; grid-template-columns: 1fr auto; gap: 0.25rem 1.5rem; align-items: baseline; }
+
+  .entry-title { font-size: var(--fs-lg); line-height: 1.35; font-weight: 600; margin: 0; text-wrap: balance; }
+
+  .entry-meta {
+    grid-column: 2;
+    grid-row: 1;
+    font-family: var(--mono);
+    font-size: var(--fs-xs);
+    color: var(--faint);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    letter-spacing: 0.02em;
+  }
+
+  .entry-body { grid-column: 1 / -1; display: flex; flex-direction: column; gap: 0.375rem; }
+
+  .venue { font-family: var(--sans); font-size: var(--fs-sm); color: var(--muted); font-style: normal; }
+  .venue em { font-style: italic; }
+
+  .summary { font-size: var(--fs-md); color: var(--ink); margin: 0; max-width: 62ch; }
+
+  .aux { font-family: var(--sans); font-size: var(--fs-sm); color: var(--muted); display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+  /* ---------- dataset cards ---------- */
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1rem; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 1.125rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .card-title { font-size: var(--fs-base); font-weight: 600; margin: 0; line-height: 1.3; }
+  .card-desc { font-size: var(--fs-sm); color: var(--muted); margin: 0; font-family: var(--sans); line-height: 1.5; }
+  .card-spec {
+    font-family: var(--mono);
+    font-size: var(--fs-xs);
+    color: var(--faint);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.02em;
+    border-top: 1px solid var(--rule);
+    padding-top: 0.5rem;
+    margin-top: auto;
+  }
+
+  /* ---------- tables ---------- */
+
+  .table-wrap { overflow-x: auto; }
+
+  table { border-collapse: collapse; width: 100%; font-family: var(--sans); font-size: var(--fs-sm); }
+  th {
+    text-align: left;
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--faint);
+    font-weight: 600;
+    padding: 0 1.25rem 0.5rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  td { padding: 0.5rem 1.25rem 0.5rem 0; border-bottom: 1px solid var(--rule); vertical-align: baseline; color: var(--ink); }
+  td:last-child, th:last-child { padding-right: 0; text-align: right; }
+  .num { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: var(--fs-xs); color: var(--faint); white-space: nowrap; letter-spacing: 0.02em; }
+  .rank { color: var(--accent); font-family: var(--mono); font-size: var(--fs-xs); white-space: nowrap; }
+
+  /* ---------- background timeline ---------- */
+
+  .cv-list { display: flex; flex-direction: column; gap: 0.75rem; }
+  .cv-row { display: grid; grid-template-columns: 1fr auto; gap: 0.15rem 1.5rem; align-items: baseline; }
+  .cv-what { font-family: var(--sans); font-size: var(--fs-md); margin: 0; }
+  .cv-what strong { font-weight: 600; }
+  .cv-when { font-family: var(--mono); font-size: var(--fs-xs); color: var(--faint); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  /* ---------- responsive ---------- */
+
+  @media (max-width: 60rem) {
+    .page { grid-template-columns: 1fr; gap: 2.75rem; padding: 2.5rem 1.25rem 4rem; }
+    .rail { position: static; }
+    .entry { grid-template-columns: 1fr; }
+    .entry-meta { grid-column: 1; grid-row: auto; order: -1; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="rail">
+    <h1 class="name">David Gauthier</h1>
+    <p class="role">Research Economist<br>Banque de France — Financial Stability Directorate</p>
+
+    <p class="bio">I build datasets from unstructured sources — speeches, news archives, transcripts — and use them to measure how information moves through the economy. My published work is on credit, risk premia and the business cycle. Previously Bank of England and Capital Fund Management. PhD in macroeconomics, Paris School of Economics.</p>
+
+    <ul class="links">
+      <li><a href="cv.pdf"><span class="link-key">CV</span><span class="link-label">PDF</span></a></li>
+      <li><a href="https://scholar.google.com/citations?user=FQstpaoAAAAJ"><span class="link-key">Scholar</span><span class="link-label">Google Scholar</span></a></li>
+      <li><a href="https://github.com/davidgaut"><span class="link-key">Code</span><span class="link-label">github.com/davidgaut</span></a></li>
+      <li><a href="https://www.kaggle.com/davidgauthier"><span class="link-key">Data</span><span class="link-label">kaggle.com/davidgauthier</span></a></li>
+      <li><a href="mailto:david.victor.gauthier@gmail.com"><span class="link-key">Email</span><span class="link-label">david.victor.gauthier@gmail.com</span></a></li>
+    </ul>
+
+    <p class="disclaimer">Views expressed on this site are my own and do not represent the Banque de France.</p>
+  </header>
+
+  <main class="content">
+
+    <section>
+      <h2>Working papers</h2>
+      <div class="entries">
+
+        <article class="entry">
+          <h3 class="entry-title"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5634090">Small Talks and the Fed Predictability</a></h3>
+          <span class="entry-meta">2026</span>
+          <div class="entry-body">
+            <p class="summary">Communications from non-Chair Fed officials move markets little on impact, yet predict interest-rate forecast errors and Treasury excess returns. Chair and Vice-Chair communications do the reverse. A rational-inattention model explains the split: firms optimally specialise their attention on the Chair, leaving information in other speeches unexploited. Built on two new datasets — 4,177 Federal Reserve Board speeches and testimonies since 1961, scored into a policy-stance signal, and a press-attention panel matching every speech since 1992 to roughly 100,000 Reuters articles.</p>
+            <p class="aux"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5634090">SSRN</a></p>
+          </div>
+        </article>
+
+        <article class="entry">
+          <h3 class="entry-title">Influence within the FOMC</h3>
+          <span class="entry-meta">in progress</span>
+          <div class="entry-body">
+            <p class="summary">Identifies members' causal influence on policy decisions from the predetermined voting rotation of regional Fed presidents — a quasi-experimental design built from institutional rules.</p>
+          </div>
+        </article>
+
+        <article class="entry">
+          <h3 class="entry-title">Revisiting the Contribution of Fire-Sales to System-Wide Amplification</h3>
+          <span class="entry-meta">in progress</span>
+          <div class="entry-body">
+            <p class="summary">A stress-testing model for the euro area built from entity-level balance-sheet data, measuring how financial shocks propagate across the system.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section>
+      <h2>Publications</h2>
+      <div class="entries">
+
+        <article class="entry">
+          <h3 class="entry-title"><a href="https://www.aeaweb.org/articles?id=10.1257/mac.20190223">Collateral Shocks</a></h3>
+          <span class="entry-meta">2022</span>
+          <div class="entry-body">
+            <p class="venue">with Yvan Bécard · <em>American Economic Journal: Macroeconomics</em> 14(1), 83–103</p>
+            <p class="summary">Collateral shocks — changes in the financial sector's ability to redeploy collateral — are the dominant source of US business cycles. The estimated shock tracks measured lending standards and market sentiment.</p>
+            <p class="aux"><a href="https://drive.google.com/file/d/1EjGKegDPfYqZpjddF_WfquKmc5Ca89vI/view">Appendix</a><a href="https://www.openicpsr.org/openicpsr/project/120103/version/V2/view">Replication code</a></p>
+          </div>
+        </article>
+
+        <article class="entry">
+          <h3 class="entry-title"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0014292123000375">Banks, Nonbanks, and Business Cycles</a></h3>
+          <span class="entry-meta">2023</span>
+          <div class="entry-body">
+            <p class="venue">with Yvan Bécard · <em>European Economic Review</em></p>
+            <p class="summary">A single risk-premium shock generates the comovement of euro-area macroeconomic and financial aggregates once banks pass risky loans to nonbanks, and drives both business and financial cycles.</p>
+          </div>
+        </article>
+
+        <article class="entry">
+          <h3 class="entry-title"><a href="https://www.sciencedirect.com/science/article/abs/pii/S1094202523000339">Slow Recoveries, Endogenous Growth and Macro-prudential Policy</a></h3>
+          <span class="entry-meta">2023</span>
+          <div class="entry-body">
+            <p class="venue">with Dario Bonciani and Derrick Kanngiesser · <em>Review of Economic Dynamics</em></p>
+            <p class="summary">Bank resilience raises the steady-state growth rate. The optimal capital ratio is 18%, with a welfare gain fourteen times larger than without endogenous growth.</p>
+            <p class="aux"><a href="https://bankunderground.co.uk/2021/07/27/slow-recoveries-endogenous-growth-and-macroprudential-policy/">Bank Underground</a><a href="https://ideas.repec.org/c/red/ccodes/21-145.html">Replication code</a></p>
+          </div>
+        </article>
+
+        <article class="entry">
+          <h3 class="entry-title"><a href="https://doi.org/10.1017/S136510052400049X">Bank Shocks and the Debt Structure</a></h3>
+          <span class="entry-meta">2024</span>
+          <div class="entry-body">
+            <p class="venue"><em>Macroeconomic Dynamics</em> 29, e42</p>
+            <p class="summary">Identifies bank credit-supply shocks from the composition of firms' debt — only bank shocks move loans and bonds in opposite directions. They account for a third of output fluctuations and predict the corporate bond spread.</p>
+            <p class="aux"><a href="https://drive.google.com/file/d/11tGEVmdXid9sDMc4VQ_Ngh_enJO9_W8Q/view">PDF</a><a href="https://drive.google.com/file/d/1ljhhlLHcSDJIYjpwTc8thgnNArozPcq3/view">Appendix</a><a href="https://bankunderground.co.uk/2020/10/22/financial-shocks-reopening-the-case/">Bank Underground</a></p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section>
+      <h2>Public datasets</h2>
+      <p class="section-note">Corpora I built for research and released openly. Hosted on Kaggle; free to download and reuse with attribution.</p>
+      <div class="cards">
+
+        <div class="card">
+          <h3 class="card-title"><a href="https://www.kaggle.com/datasets/davidgauthier/central-bank-speeches">Central Bank Speeches</a></h3>
+          <p class="card-desc">A curated corpus of central bankers' speeches, cleaned and aligned across institutions.</p>
+          <p class="card-spec">1997– · 8 institutions · euro area, US, UK, JP, CA, SE, CH, AT</p>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title"><a href="https://www.kaggle.com/datasets/davidgauthier/fomc-conferences">FOMC Press Conferences</a></h3>
+          <p class="card-desc">The Chair's answers in FOMC press conferences, in both text and audio.</p>
+          <p class="card-spec">2015– · text + audio</p>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title"><a href="https://www.kaggle.com/datasets/davidgauthier/macro-announcements">Macro Announcements</a></h3>
+          <p class="card-desc">Macroeconomic data releases paired with the consensus forecast preceding each one.</p>
+          <p class="card-spec">releases + consensus + forecasts</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section>
+      <h2>Research code</h2>
+      <p class="section-note">Toolboxes I maintain for macroeconomic estimation.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Toolbox</th><th scope="col">What it does</th><th scope="col">Language</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="https://github.com/davidgaut/SignRestrictionVAR">SignRestrictionVAR</a></td>
+              <td>Sign-restriction VAR estimation and identification</td>
+              <td class="num">Julia</td>
+            </tr>
+            <tr>
+              <td><a href="https://github.com/davidgaut/IRF_Matching">IRF_Matching</a></td>
+              <td>Bayesian impulse-response matching with Dynare</td>
+              <td class="num">Matlab / Dynare</td>
+            </tr>
+            <tr>
+              <td><a href="https://github.com/davidgaut/Risky-Steady-State-with-Dynare">Risky Steady State</a></td>
+              <td>Computes the risky steady state from a Dynare model</td>
+              <td class="num">Matlab / Dynare</td>
+            </tr>
+            <tr>
+              <td><a href="https://github.com/davidgaut/Dynare_Utilities/tree/master/Helpers/DynareModif">Frequency-Domain Estimation</a></td>
+              <td>Spectral-density estimation routines for Dynare models</td>
+              <td class="num">Matlab / Dynare</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>Prediction competitions</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Competition</th><th scope="col">Task</th><th scope="col">Result</th><th scope="col">Year</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>AMF</td><td>European taxonomy text classification (NLP)</td><td class="rank">top 1%</td><td class="num">2023</td></tr>
+            <tr><td><a href="https://github.com/davidgaut/Natixis_2022">Natixis</a></td><td>Asset returns from central bankers' speeches (NLP)</td><td class="rank">top 5%</td><td class="num">2022</td></tr>
+            <tr><td><a href="https://github.com/davidgaut/CFM_DC">Capital Fund Management</a></td><td>End-of-day stock auction volumes</td><td class="rank">top 5%</td><td class="num">2021</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>Background</h2>
+      <div class="cv-list">
+        <div class="cv-row">
+          <p class="cv-what"><strong>Research Economist</strong>, Banque de France — Financial Stability Directorate</p>
+          <span class="cv-when">2024–</span>
+        </div>
+        <div class="cv-row">
+          <p class="cv-what"><strong>Quantitative Research Intern</strong>, Capital Fund Management — Research Team</p>
+          <span class="cv-when">2022</span>
+        </div>
+        <div class="cv-row">
+          <p class="cv-what"><strong>Research Economist</strong>, Bank of England — Modelling Team</p>
+          <span class="cv-when">2018–2021</span>
+        </div>
+        <div class="cv-row">
+          <p class="cv-what"><strong>M.Sc. Data Science</strong>, ENSAE — Institut Polytechnique de Paris</p>
+          <span class="cv-when">2021–2022</span>
+        </div>
+        <div class="cv-row">
+          <p class="cv-what"><strong>Ph.D. Macroeconomics</strong>, Paris School of Economics &amp; Panthéon-Sorbonne</p>
+          <span class="cv-when">2015–2019</span>
+        </div>
+      </div>
+      <p class="section-note">Refereeing for the <em>Journal of Money, Credit and Banking</em>, the <em>Quarterly Review of Economics and Finance</em> and <em>Macroeconomic Dynamics</em>. Full detail in the <a href="cv.pdf">CV</a>.</p>
+    </section>
+
+  </main>
+</div>
+</body>
+</html>
