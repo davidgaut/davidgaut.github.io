@@ -1,17 +1,19 @@
 % =====================================================================
-% David Gauthier — CV
-% Public web version: home address and phone removed, site link updated.
-% Compile:  pdflatex CV_Gauthier_Anthropic.tex
+% David Gauthier — CV (one-page short version)
+% Tailored for: Capital Fund Management, Quantitative Researcher (Economics)
+% Compile:  pdflatex CV_Gauthier_CFM_short.tex
 %
-% Derived from CV_Gauthier_CFM.tex. Refocused from signal/alpha framing to
-% measurement, novel-data construction, causal inference and policy audiences.
+% Differences from CV_Gauthier_CFM.tex (two pages):
+%   - Public Data & Code section removed
+%   - publication descriptions removed (title, co-authors, journal, year only)
+%   - working-paper entry shortened; thesis lines and Skills compressed
 % =====================================================================
 \documentclass[10pt,a4paper]{article}
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[bitstream-charter]{mathdesign}
-\usepackage[margin=1.7cm,top=1.25cm,bottom=1.2cm]{geometry}
+\usepackage[margin=1.7cm,top=1.25cm,bottom=1.1cm]{geometry}
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{microtype}
@@ -26,7 +28,7 @@
 \titleformat{\section}
   {\normalfont\bfseries\scshape\normalsize}{}{0em}{}
   [\vspace{-7pt}\rule{\textwidth}{0.7pt}]
-\titlespacing*{\section}{0pt}{8pt}{3pt}
+\titlespacing*{\section}{0pt}{7pt}{3pt}
 
 % --- entry macros ----------------------------------------------------
 \newcommand{\job}[3]{%
@@ -38,14 +40,9 @@
   \textbf{#1}\hfill #2\par
   \vspace{2.5pt}%
 }
-\newcommand{\pub}[4]{%
-  \textbf{#1}\hfill #4\par\nobreak
-  {\leftskip=1.1em\small\textit{#2}\par
-   \leftskip=1.1em\small #3\par}%
-  \vspace{2.5pt}%
-}
-\newcommand{\dataitem}[2]{%
-  {\small\textbf{#1} #2\par}\vspace{1.5pt}%
+% compact one-line publication: title --- co-authors/journal ....... year
+\newcommand{\publine}[3]{%
+  {\textbf{#1} {\small\textit{#2}}\hfill #3\par}\vspace{2pt}%
 }
 
 \begin{document}
@@ -60,28 +57,26 @@
    \href{https://github.com/davidgaut}{github.com/davidgaut}\par}
   \vspace{4pt}
 }
-{\small\itshape
-Empirical macro-finance economist. I build novel datasets from unstructured sources --- speeches,
-news archives, transcripts --- to measure how information and technology propagate through the
-economy. Four refereed publications on credit, risk premia and the business cycle; research
-economist inside two central banks (Banque de France, Bank of England); retrained in data science
-at ENSAE after the Ph.D.\par}
+% {\small\itshape
+% Macro-finance economist and data scientist. Four refereed publications on credit supply, risk premia
+% and the business cycle; central bank research at the Banque de France and the Bank of England.
+% Retrained in data science at ENSAE after the Ph.D.; builds alternative datasets from text and news
+% archives and turns them into signals tested out of sample and net of costs.\par}
 
 % =====================================================================
 \section{Positions}
 
 \job{Research Economist, Banque de France --- Financial Stability Directorate}{2024 -- present}
-{Entity-level measurement of shock propagation and contagion in the banking system, used in policy
-analysis. Research on monetary policy, central bank communication and financial cycles.}
+{Stress-testing models of shock propagation and contagion in the banking system. Research on
+monetary policy, central bank communication and financial cycles.}
 
 \job{Quantitative Research Intern, Capital Fund Management --- Research Team}{2022 (10 months)}
-{End-to-end extraction of economic signal from central bank communication: corpus construction,
-NLP scoring, validation and deployment into decisions.}
+{Signal extraction from central bank communication, from construction to the investment decision.}
 
 \job{Research Economist, Bank of England --- Modeling Team}{2018 -- 2021}
-{Built and maintained the forecasting and modelling toolboxes (time-series, state-space, DSGE)
-used in the production forecast round. Research on business cycles, monetary economics and
-financial shocks; Brexit and unconventional monetary policy.}
+{Built and maintained the forecasting and modelling toolboxes (time-series, state-space, DSGE) used
+in the production forecast round. Business cycles, monetary economics and financial shocks; Brexit
+and unconventional monetary policy.}
 
 \jobplain{Ph.D.\ Student, Banque de France --- Research Division \& Paris School of Economics}{2015 -- 2018}
 
@@ -89,42 +84,24 @@ financial shocks; Brexit and unconventional monetary policy.}
 \section{Research --- Working Papers}
 
 \job{Authority, Attention, and the Origins of Monetary Policy Surprises}{2026}
-{Two novel datasets built for it: 4{,}177 Federal Reserve Board speeches and testimonies since
-1961, scored into a policy-stance signal, and a press-attention panel matching every speech since
-1992 to $\sim$100{,}000 Reuters articles (Factiva), alongside FOMC transcripts, voting records and
-real-time macroeconomic vintages. Shows that markets systematically discount policymaker
-communication: the discount predicts rate forecast errors, Treasury excess returns and the
-forward-guidance component of policy surprises --- out of sample and under conservative inference,
-conditioning on the yield curve and a real-time macro panel.}
+{Two datasets built for it: 4{,}177 Federal Reserve Board speeches and testimonies
+since 1961, scored into a policy-stance signal, and a panel matching every speech since 1992 to
+$\sim$100{,}000 Reuters articles. The communications markets discount predict rate forecast
+errors and Treasury excess returns, out of sample.}
 
 \job{Influence within the FOMC}{in progress}
-{Identifies members' causal influence on policy decisions from the predetermined voting rotation
-of regional Fed presidents --- a quasi-experimental design built from institutional rules.}
+{Identifies members' causal influence on policy decisions from the predetermined voting rotation of
+regional Fed presidents.}
 
-\job{Revisiting the Contribution of Fire-Sales to System-Wide Amplification}{in progress}
-{A stress-testing model for the Eurozone built from entity-level balance-sheet data to measure the
-propagation of financial shocks across the system.}
-
+\job{Revisiting the contribution of fire-sales to system-wide amplification}{in progress}
+{Develops a model of stress testing for the Eurozone from entity-level balance-sheet data to study the propagation of financial shocks.}
 % =====================================================================
 \section{Research --- Publications}
 
-\pub{Collateral Shocks}{with Y.\ B\'ecard --- American Economic Journal: Macroeconomics}
-{Collateral shocks --- changes in the financial sector's ability to redeploy collateral --- are the
-dominant source of U.S.\ business cycles. The estimated shock tracks measured lending standards and
-market sentiment.}{2022}
-
-\pub{Banks, Nonbanks, and Business Cycles}{with Y.\ B\'ecard --- European Economic Review}
-{A single risk-premium shock generates the comovement of euro-area macroeconomic and financial
-aggregates once banks pass risky loans to nonbanks, and drives business and financial cycles.}{2023}
-
-\pub{Slow Recoveries, Endogenous Growth and Macro-prudential Policy}{with D.\ Bonciani and D.\ Kanngiesser --- Review of Economic Dynamics}
-{Bank resilience raises the steady-state growth rate. Optimal capital ratio of 18\%, with a welfare
-gain fourteen times larger than without endogenous growth. Open-source code.}{2023}
-
-\pub{Bank Shocks and the Debt Structure}{Macroeconomic Dynamics}
-{Identifies bank credit-supply shocks from the composition of firms' debt --- only bank shocks move
-loans and bonds in opposite directions. A third of output fluctuations; predicts the corporate bond
-spread.}{2024}
+\publine{Collateral Shocks}{--- with Y.\ B\'ecard, American Economic Journal: Macroeconomics}{2022}
+\publine{Banks, Nonbanks, and Business Cycles}{--- with Y.\ B\'ecard, European Economic Review}{2023}
+\publine{Slow Recoveries, Endogenous Growth and Macro-prudential Policy}{--- with D.\ Bonciani and D.\ Kanngiesser, Review of Economic Dynamics}{2023}
+\publine{Bank Shocks and the Debt Structure}{--- Macroeconomic Dynamics}{2024}
 
 % =====================================================================
 \section{Education}
@@ -132,49 +109,36 @@ spread.}{2024}
 \job{M.Sc.\ Data Science, ENSAE --- Institut Polytechnique de Paris}{2021 -- 2022}
 {Thesis: \textit{Central Banks' Speeches: An NLP-Based Investment Strategy}.}
 
-\job{Ph.D.\ Macroeconomics, Paris School of Economics \& Panth\'eon-Sorbonne}{2015 -- 2019}
-{Thesis: \textit{Financial Stress and the Business Cycle}.}
+\jobplain{Ph.D.\ Macroeconomics, Paris School of Economics \& Panth\'eon-Sorbonne}{2015 -- 2019}
 
 \jobplain{M.Sc.\ Economics (Research), Paris School of Economics \& Panth\'eon-Sorbonne}{2011 -- 2013}
 
 % =====================================================================
-\section{Public Data \& Code}
-
-\dataitem{Public datasets (Kaggle).}{Central bank speeches, eight institutions since 1997; FOMC
-press conferences, transcripts and audio since 2015; macroeconomic releases paired with consensus
-forecasts; UK Glassdoor reviews since 2008.}
-
-\dataitem{Code.}{\href{https://github.com/davidgaut}{github.com/davidgaut}; Bank of England
-\emph{Bank Underground} post.}
-
-% =====================================================================
-\section{Prediction Competitions}
+\section{Quantitative Competitions}
 
 {\small
 \begin{tabular}{@{}p{0.74\textwidth}@{\hspace{1.2em}}l@{\hspace{1.2em}}r@{}}
-\textbf{AMF} --- European taxonomy text classification, NLP & \textit{top 1\%} & 2023\\[1pt]
-\textbf{Natixis} --- asset returns from central bankers' speeches, NLP & \textit{top 5\%} & 2022\\[1pt]
 \textbf{Capital Fund Management} --- end-of-day stock auction volumes & \textit{top 5\%} & 2021\\[1pt]
+\textbf{Natixis} --- asset returns from central bankers' speeches, NLP & \textit{top 5\%} & 2022\\[1pt]
+\textbf{Optiver} --- realized volatility prediction & \textit{top 10\%} & 2021\\[1pt]
 \textbf{Enefit} --- energy behaviour of prosumers & \textit{top 5\%} & 2024\\[1pt]
-\textbf{Optiver} --- realized volatility prediction & \textit{top 10\%} & 2021\\
+\textbf{AMF} --- European taxonomy text classification, NLP & \textit{top 1\%} & 2023\\
 \end{tabular}\par}
 
 % =====================================================================
 \section{Skills}
 
 {\small
-\textbf{Programming.} Python --- scraping and parsing archives, ETL pipelines, feature
-construction, estimation, evaluation (pandas, numpy, scikit-learn, PyTorch, statsmodels); SQL, R,
+\textbf{Programming.} Python (pandas, polars, numpy, scikit-learn, PyTorch, statsmodels),
 Matlab, Dynare, Git, \LaTeX.\par
-\textbf{Methods.} Causal inference (panel, event-study and quasi-experimental designs; structural
-identification); out-of-sample evaluation with HAC and bootstrap inference; real-time vintage
-data; Bayesian state-space and DSGE estimation; gradient boosting; transformer- and
-dictionary-based NLP for social science.\par
-\textbf{Data.} Factiva / Dow Jones, Thomson Reuters Eikon, S\&P Market Intelligence, FRED/ALFRED
-real-time vintages, federal funds futures, Blue Chip and SPF surveys.\par
+% % \textbf{Methods.} Predictive regressions with HAC and bootstrap inference on overlapping returns;
+% out-of-sample evaluation; real-time vintage data; panel and event-study designs; Bayesian
+% state-space and DSGE estimation; gradient boosting; transformer- and dictionary-based NLP.\par
+% \textbf{Data.} Factiva / Dow Jones, Thomson Reuters Eikon, S\&P Market Intelligence, FRED/ALFRED
+% real-time vintages, federal funds futures, Blue Chip and SPF surveys.\par
 \textbf{Refereeing.} Journal of Money, Credit and Banking $\cdot$ Quarterly Review of Economics and
 Finance $\cdot$ Macroeconomic Dynamics.\par
-\textbf{Teaching.} Macroeconomics (undergraduate), Paris 1; Development Economics (graduate),
+\textbf{Teaching.} Macroeconomics (undergraduate), Paris 1; development economics (graduate),
 CentraleSup\'elec.\par
 \textbf{Languages.} French (native), English (fluent), Italian (beginner).\par}
 
